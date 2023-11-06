@@ -42,6 +42,7 @@ class Frame(FrameTemplate):
     self.reports_page_link.background = app.theme_colors['Primary Container']
     self.sales_page_link.background = "transparent"
 
+
   #If using the Users service, uncomment this code to log out the user:
   # def signout_link_click(self, **event_args):
   #   """This method is called when the link is clicked"""
