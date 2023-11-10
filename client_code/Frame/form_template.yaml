@@ -23,7 +23,7 @@ components:
   - type: Button
     properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
       foreground: '', visible: true, text: ' Reports', font_size: 18, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: true, background: '', bold: false,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: 'fa:pie-chart'}
     name: reports_page_link
     layout_properties: {grid_position: 'WTVZBA,QCUVNH'}
