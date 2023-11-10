@@ -18,7 +18,7 @@ components:
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: 'fa:bar-chart'}
     name: sales_page_link
-    layout_properties: {grid_position: 'ATKKKJ,DBSYGY'}
+    layout_properties: {grid_position: 'MZHUZB,HRDBDK'}
     event_bindings: {click: sales_page_link_click}
   - type: Button
     properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
