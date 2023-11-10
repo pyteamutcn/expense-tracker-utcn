@@ -1,4 +1,6 @@
-container: {type: DataRowPanel}
+container:
+  type: DataRowPanel
+  properties: {visible: true}
 components:
 - type: Label
   properties: {}

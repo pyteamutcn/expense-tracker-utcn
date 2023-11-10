@@ -98,6 +98,7 @@ components:
         properties: {spacing_above: none, spacing_below: none, item_template: Frame.RowTemplate1}
         name: repeating_panel_1
         layout_properties: {}
+      data_bindings: []
   - type: ColumnPanel
     properties: {role: card, col_widths: '{"VVWOID":20,"EQOCFH":40}'}
     name: card_7

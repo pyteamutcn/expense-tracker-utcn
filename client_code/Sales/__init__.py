@@ -1,5 +1,6 @@
 from ._anvil_designer import SalesTemplate
 from anvil import *
+import stripe.checkout
 import anvil.server
 import anvil.users
 import anvil.tables as tables
@@ -30,6 +31,23 @@ class Sales(SalesTemplate):
     #the Files table. This is done on the secure server where you might only want to return user-visible data
     self.repeating_panel_1.items = anvil.server.call('return_table')
 
+    def display_table(self, table_data):
+        """
+        Display the provided table data on the website.
+
+        :param table_data: List of dictionaries representing the table data.
+        """
+        # Create an HTML string for the table
+        table_html = "<table border='1'><tr><th>Name</th><th>Price</th><th>Date</th></tr>"
+
+        for row in table_data:
+            table_html += f"<tr><td>{row['Name']}</td><td>{row['Price']}</td><td>{row['Date']}</td></tr>"
+
+        table_html += "</table>"
+
+        # Display the table HTML in an Anvil component
+        self.html_1.set_html(HtmlTemplate(table_html))
+  
   def create_line_graph(self):
     self.plot_1.data = [
       go.Scatter(

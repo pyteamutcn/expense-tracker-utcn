@@ -8,13 +8,16 @@ services:
   client_config: {allow_signup: true, enable_automatically: true, use_email: true,
     confirm_email: false, use_google: false}
   server_config: {user_table: users}
+- source: /runtime/services/stripe.yml
+  client_config: {}
+  server_config: {}
 startup: {type: form, module: Frame}
 package_name: Expense_Tracker_UTCN
 allow_embedding: false
-name: Clone of Expense Tracker UTCN
+name: Expense Tracker UTCN
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
   server_spec: null, preview_v3: true}
-metadata: {title: Expense Tracker}
+metadata: {title: Expense Tracker, logo_img: 'asset:expenseTrackerLogo-logo.png'}
 startup_form: null
 native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap"
     rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">'}
@@ -63,3 +66,17 @@ db_schema:
       admin_ui: {order: 3, width: 200}
       type: datetime
     title: Files
+  spending:
+    client: none
+    server: full
+    columns:
+    - name: Name
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: Price
+      admin_ui: {width: 200, order: 1}
+      type: number
+    - name: Date
+      admin_ui: {width: 200, order: 2}
+      type: date
+    title: Spending
