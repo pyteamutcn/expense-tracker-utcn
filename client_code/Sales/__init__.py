@@ -1,7 +1,6 @@
 from ._anvil_designer import SalesTemplate
 from anvil import *
 from anvil import HtmlTemplate
-import stripe.checkout
 import anvil.server
 import anvil.users
 import anvil.tables as tables
@@ -25,12 +24,7 @@ class Sales(SalesTemplate):
 
         # Set the contents of the data grid to the contents of the Files table.
         # This is done on the secure server where you might only want to return user-visible data
-        self.repeating_panel_1.items = anvil.server.call('return_table')
-      
-
-    # def display_table(self, table):
-      #todo
-
+        self.repeating_panel_1.items = anvil.server.call('return_spending_table')
   
     def create_line_graph(self):
         self.plot_1.data = [

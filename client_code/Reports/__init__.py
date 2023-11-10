@@ -1,6 +1,5 @@
 from ._anvil_designer import ReportsTemplate
 from anvil import *
-import stripe.checkout
 import plotly.graph_objects as go
 import anvil.server
 import anvil.users

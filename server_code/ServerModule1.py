@@ -1,4 +1,3 @@
-import anvil.stripe
 import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -14,6 +13,10 @@ anvil.plotly_templates.set_default("rally")
 @anvil.server.callable
 def return_table():
   return app_tables.files.search()
+
+@anvil.server.callable
+def return_spending_table():
+  return app_tables.spending.search()
 
 @anvil.server.callable
 def return_data(year):

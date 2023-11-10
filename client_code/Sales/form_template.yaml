@@ -82,10 +82,9 @@ components:
       type: DataGrid
       components:
       - name: repeating_panel_1
-        properties: {item_template: Sales.RowTemplate2}
+        properties: {item_template: Frame.RowTemplate1}
         type: RepeatingPanel
-        layout_properties: {pinned: false}
-        data_bindings: []
+        layout_properties: {}
       layout_properties: {grid_position: 'OLWNNH,UZJFXN'}
       data_bindings: []
   - type: ColumnPanel
