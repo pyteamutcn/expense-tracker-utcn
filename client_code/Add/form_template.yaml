@@ -4,68 +4,6 @@ container:
 components:
 - type: ColumnPanel
   properties: {role: card, col_widths: '{}'}
-  name: card_2
-  layout_properties: {grid_position: 'WSLHTU,RGQMIU'}
-  components:
-  - type: Label
-    properties: {role: body, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: PAGE VIEWS, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    name: label_2
-    layout_properties: {grid_position: 'KHHYTD,VLBHJI'}
-  - type: FlowPanel
-    properties: {}
-    name: flow_panel_1
-    layout_properties: {grid_position: 'UKUHCZ,JZCHYN'}
-    components:
-    - type: Label
-      properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: '12930', font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
-      name: label_5
-      layout_properties: {grid_position: 'EVNISV,XJQTTQ'}
-    - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: 'theme:Primary',
-        visible: true, text: '', font_size: 32, font: '', spacing_above: small, icon_align: left,
-        spacing_below: small, italic: false, background: '', bold: false, underline: false,
-        icon: 'fa:caret-up'}
-      name: label_8
-      layout_properties: {grid_position: 'EVNISV,CNJWYO'}
-- type: ColumnPanel
-  properties: {role: card, col_widths: '{}'}
-  name: card_4
-  layout_properties: {grid_position: 'WSLHTU,GHTBXT'}
-  components:
-  - type: Label
-    properties: {role: body, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: AVG TIME, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    name: label_4
-    layout_properties: {grid_position: 'YTQXRZ,WVLWFF'}
-  - type: FlowPanel
-    properties: {}
-    name: flow_panel_3
-    layout_properties: {grid_position: 'LUUIKF,LIDJIO'}
-    components:
-    - type: Label
-      properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 42 mins., font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
-      name: label_7
-      layout_properties: {grid_position: 'QQVKNZ,MVZAXD'}
-    - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: 'theme:Error',
-        visible: true, text: '', font_size: 32, font: '', spacing_above: small, icon_align: left,
-        spacing_below: small, italic: false, background: '', bold: false, underline: false,
-        icon: 'fa:caret-down'}
-      name: label_10
-      layout_properties: {grid_position: 'QQVKNZ,YHCKMO'}
-- type: ColumnPanel
-  properties: {role: card, col_widths: '{}'}
   name: card_3
   layout_properties: {grid_position: 'WSLHTU,UEKQLD'}
   components:
@@ -95,22 +33,6 @@ components:
         icon: 'fa:caret-down'}
       name: label_9
       layout_properties: {grid_position: 'YYSDRE,SFJZYN'}
-- type: ColumnPanel
-  properties: {role: card, col_widths: '{}'}
-  name: card_1
-  layout_properties: {grid_position: 'TMIMPR,WMQMZT'}
-  components:
-  - type: Label
-    properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Sign-ups, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    name: label_1
-    layout_properties: {grid_position: 'TYZKNT,WZQHNH'}
-  - type: Plot
-    properties: {}
-    name: plot_1
-    layout_properties: {grid_position: 'LNSHOL,HLYVYY'}
 - type: ColumnPanel
   properties: {role: card, col_widths: '{}'}
   name: card_5

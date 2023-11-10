@@ -7,6 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..Reports import Reports
 from ..Sales import Sales
+from ..Add import Add
 
 #This is your startup form. It has a sidebar with navigation links and a content panel where page content will be added.
 class Frame(FrameTemplate):
@@ -48,7 +49,7 @@ class Frame(FrameTemplate):
     """This method is called when the link is clicked"""
     #Clear the content panel and add the Sales Form
     self.content_panel.clear()
-    self.content_panel.add_component(Sales())
+    self.content_panel.add_component(Add())
     #Change the color of the sales_page_link to indicate that the Sales page has been selected
     self.add_page_link.background = app.theme_colors['Primary Container']
     self.reports_page_link.background = "transparent"
