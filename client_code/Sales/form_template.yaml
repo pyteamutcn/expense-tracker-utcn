@@ -73,31 +73,20 @@ components:
         underline: false, icon: ''}
       name: label_15
       layout_properties: {grid_position: 'ZCOOLF,ZNQHMJ'}
-    - type: DataGrid
+    - name: data_grid_1
       properties:
-        role: null
         columns:
-        - {id: KJILYV, title: Services, data_key: services, $$hashKey: 'object:16742'}
-        - {id: VSSQIK, title: Amount, data_key: amount, $$hashKey: 'object:16743'}
-        - {id: KXESPC, title: Date, data_key: date, $$hashKey: 'object:16744'}
-        auto_header: true
-        tooltip: ''
-        border: ''
-        foreground: ''
-        rows_per_page: 20
-        visible: true
-        wrap_on: never
-        show_page_controls: true
-        spacing_above: small
-        spacing_below: small
-        background: ''
-      name: data_grid_1
-      layout_properties: {grid_position: 'IZDBPZ,LYWXJH'}
+        - {id: GIHZUV, data_key: Name, title: Name}
+        - {id: CFHIOK, data_key: Price, title: Price}
+        - {id: XNQBXX, data_key: Date, title: Date}
+      type: DataGrid
       components:
-      - type: RepeatingPanel
-        properties: {spacing_above: none, spacing_below: none, item_template: Frame.RowTemplate1}
-        name: repeating_panel_1
-        layout_properties: {}
+      - name: repeating_panel_1
+        properties: {item_template: Sales.RowTemplate2}
+        type: RepeatingPanel
+        layout_properties: {pinned: false}
+        data_bindings: []
+      layout_properties: {grid_position: 'OLWNNH,UZJFXN'}
       data_bindings: []
   - type: ColumnPanel
     properties: {role: card, col_widths: '{"VVWOID":20,"EQOCFH":40}'}

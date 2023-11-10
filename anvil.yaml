@@ -67,7 +67,7 @@ db_schema:
       type: datetime
     title: Files
   spending:
-    client: none
+    client: search
     server: full
     columns:
     - name: Name
