@@ -19,6 +19,10 @@ def return_spending_table():
   return app_tables.spending.search()
 
 @anvil.server.callable
+def return_test_table():
+  return app_tables.test.search()
+
+@anvil.server.callable
 def return_data(year):
   #Your code to process and return data goes here
   if year == "2023":

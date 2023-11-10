@@ -1,4 +1,4 @@
-from ._anvil_designer import AddTemplate
+from ._anvil_designer import TestTemplate
 from anvil import *
 import plotly.graph_objects as go
 import anvil.server
@@ -7,9 +7,8 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-class Add(AddTemplate):
+class Test(TestTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     # Any code you write here will run before the form opens.
-

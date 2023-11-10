@@ -33,6 +33,11 @@ components:
     type: Button
     layout_properties: {grid_position: 'KVRHNA,BUWFIN'}
     event_bindings: {click: add_page_link_click}
+  - name: button_1
+    properties: {text: ' TEST', icon: 'fa:car', font_size: 18}
+    type: Button
+    layout_properties: {grid_position: 'IOWVBM,DKSBES'}
+    event_bindings: {click: test_page_link_click}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: '                                                                                 ',
