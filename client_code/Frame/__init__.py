@@ -8,6 +8,7 @@ from anvil.tables import app_tables
 from ..Reports import Reports
 from ..Sales import Sales
 from ..AddExpense import AddExpense
+from ..Notifications import Notifications
 
 
 #This is your startup form. It has a sidebar with navigation links and a content panel where page content will be added.
@@ -35,6 +36,7 @@ class Frame(FrameTemplate):
     self.sales_page_link.background = app.theme_colors['Primary Container']
     self.reports_page_link.background = "transparent"
     self.addExpense_page_link.background = "transparent"
+    self.notification_page_link.background = "transparent"
 
   def reports_page_link_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -45,6 +47,7 @@ class Frame(FrameTemplate):
     self.reports_page_link.background = app.theme_colors['Primary Container']
     self.sales_page_link.background = "transparent"
     self.addExpense_page_link.background = "transparent"
+    self.notification_page_link.background = "transparent"
     
   def addExpense_page_link_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -55,7 +58,18 @@ class Frame(FrameTemplate):
     self.addExpense_page_link.background = app.theme_colors['Primary Container']
     self.reports_page_link.background = "transparent"
     self.sales_page_link.background = "transparent"
+    self.notification_page_link.background = "transparent"
 
+  def notification_page_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    #Clear the content panel and add the Sales Form
+    self.content_panel.clear()
+    self.content_panel.add_component(Notifications())
+    #Change the color of the sales_page_link to indicate that the Sales page has been selected
+    self.notification_page_link.background = app.theme_colors['Primary Container']
+    self.reports_page_link.background = "transparent"
+    self.sales_page_link.background = "transparent"
+    self.addExpense_page_link.background = "transparent"
 
   #If using the Users service, uncomment this code to log out the user:
   def signout_link_click(self, **event_args):
