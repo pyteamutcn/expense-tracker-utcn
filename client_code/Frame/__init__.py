@@ -7,7 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..Reports import Reports
 from ..Sales import Sales
-from ..Add import Add
+from ..AddExpense import AddExpense
 
 
 #This is your startup form. It has a sidebar with navigation links and a content panel where page content will be added.
@@ -34,7 +34,7 @@ class Frame(FrameTemplate):
     #Change the color of the sales_page_link to indicate that the Sales page has been selected
     self.sales_page_link.background = app.theme_colors['Primary Container']
     self.reports_page_link.background = "transparent"
-    self.add_page_link.background = "transparent"
+    self.addExpense_page_link.background = "transparent"
 
   def reports_page_link_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -44,15 +44,15 @@ class Frame(FrameTemplate):
     #Change the color of the sales_page_link to indicate that the Reports page has been selected
     self.reports_page_link.background = app.theme_colors['Primary Container']
     self.sales_page_link.background = "transparent"
-    self.add_page_link.background = "transparent"
+    self.addExpense_page_link.background = "transparent"
     
-  def add_page_link_click(self, **event_args):
+  def addExpense_page_link_click(self, **event_args):
     """This method is called when the link is clicked"""
     #Clear the content panel and add the Sales Form
     self.content_panel.clear()
-    self.content_panel.add_component(Add())
+    self.content_panel.add_component(AddExpense())
     #Change the color of the sales_page_link to indicate that the Sales page has been selected
-    self.add_page_link.background = app.theme_colors['Primary Container']
+    self.addExpense_page_link.background = app.theme_colors['Primary Container']
     self.reports_page_link.background = "transparent"
     self.sales_page_link.background = "transparent"
 
