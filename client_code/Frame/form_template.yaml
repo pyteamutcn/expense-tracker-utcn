@@ -37,7 +37,7 @@ components:
     properties: {text: ' NOTIFICATIONS', icon: 'fa:bell', font_size: 18}
     type: Button
     layout_properties: {grid_position: 'MHPABL,IDEOKP'}
-    event_bindings: {click: notification_page_link}
+    event_bindings: {click: notification_page_link_click}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: '                                                                                 ',
