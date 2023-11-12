@@ -1,3 +1,26 @@
 container: {type: ColumnPanel}
-components: []
+components:
+- name: column_panel_1
+  properties: {col_widths: '{"JQUMFA":10,"AKXYQY":50}'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'HCJDEM,RISQYV'}
+  components:
+  - name: label_2
+    properties: {text: ' SET NOTIFICATIONS', icon: 'fa:bell', bold: true, font: '',
+      font_size: 30, align: center}
+    type: Label
+    layout_properties: {grid_position: 'FXVNXT,ZKMCMO'}
+  - name: label_1
+    properties: {text: 'Select one of the following:'}
+    type: Label
+    layout_properties: {grid_position: 'PIAQJP,JQUMFA SMJVVP,ABXQHB'}
+  - name: button_1
+    properties: {text: SAVE}
+    type: Button
+    layout_properties: {grid_position: 'PIAQJP,JQUMFA FBTVXW,JXHDHG'}
+  - name: drop_down_1
+    properties:
+      items: [SMS Notifications, Email Notifications, Both]
+    type: DropDown
+    layout_properties: {grid_position: 'PIAQJP,AKXYQY'}
 is_package: true
