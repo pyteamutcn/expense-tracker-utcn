@@ -12,11 +12,11 @@ components:
     layout_properties: {grid_position: 'ZLGRKI,HYJUGV'}
     data_bindings: []
   - name: nameLabelAddExpense
-    properties: {text: Name}
+    properties: {text: Name of Expense}
     type: Label
     layout_properties: {grid_position: 'QYASRV,RNUENT AWDMPC,QFNRBC'}
   - name: serviceLabelAddExpense
-    properties: {text: Service}
+    properties: {text: Category}
     type: Label
     layout_properties: {grid_position: 'QYASRV,RNUENT ZEWHJC,SJDRPV'}
   - name: amountLabelAddExpense
