@@ -31,19 +31,22 @@ class Sales(SalesTemplate):
             go.Scatter(
                 x=self.x_weeks,
                 y=self.y_values[0],
-                fill="tozeroy",
+                #fill="tozeroy",
+                line_color = 'red',
                 name="Food"
             ),
             go.Scatter(
                 x=self.x_weeks,
                 y=self.y_values[1],
-                fill="tonexty",
+                #fill="tonexty",
+                line_color = 'green',
                 name="Car Expense"
             ),
             go.Scatter(
                 x=self.x_weeks,
                 y=self.y_values[2],
-                fill="tozeroy",
+                #fill="tozeroy",
+                line_color = 'blue',
                 name="Personal Expense"
             )
         ]
