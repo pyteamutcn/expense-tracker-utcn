@@ -15,10 +15,10 @@ class Sales(SalesTemplate):
 
         # Any code you write here will run before the form opens.
         # The x-axis of plot_1 will be the months of the year. The y-axis will be dummy data returned from the server
-        self.x_months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"]
+        self.x_weeks = ["Week1", "Week2", "Week3", "Week4"]
         
         # Get the y-values from the server
-        self.y_values = anvil.server.call('return_data', "2023")
+        self.y_values = anvil.server.call('return_data', "November")
         #self.display_table(app_tables.spending)
         self.create_line_graph()
 
@@ -29,16 +29,22 @@ class Sales(SalesTemplate):
     def create_line_graph(self):
         self.plot_1.data = [
             go.Scatter(
-                x=self.x_months,
+                x=self.x_weeks,
                 y=self.y_values[0],
                 fill="tozeroy",
-                name="Product A"
+                name="Food"
             ),
             go.Scatter(
-                x=self.x_months,
+                x=self.x_weeks,
                 y=self.y_values[1],
                 fill="tonexty",
-                name="Product B"
+                name="Car Expense"
+            ),
+            go.Scatter(
+                x=self.x_weeks,
+                y=self.y_values[2],
+                fill="tozeroy",
+                name="Personal Expense"
             )
         ]
 
