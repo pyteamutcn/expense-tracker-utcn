@@ -8,7 +8,7 @@ services:
   client_config: {allow_signup: true, enable_automatically: true, use_email: true,
     confirm_email: false, use_google: false}
   server_config: {user_table: users}
-startup: {type: form, module: Frame}
+startup: {type: form, module: Logout}
 package_name: Expense_Tracker_UTCN
 allow_embedding: false
 name: Expense Tracker UTCN
