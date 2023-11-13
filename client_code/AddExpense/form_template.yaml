@@ -20,7 +20,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'QYASRV,RNUENT ZEWHJC,SJDRPV'}
   - name: amountLabelAddExpense
-    properties: {text: Amount}
+    properties: {text: Amount spent}
     type: Label
     layout_properties: {grid_position: 'QYASRV,RNUENT ZUJGGR,WXYSGP'}
   - name: text_box_1
