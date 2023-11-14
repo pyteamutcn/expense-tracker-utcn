@@ -47,8 +47,10 @@ components:
     properties: {text: SAVE}
     type: Button
     layout_properties: {grid_position: 'SCZLHG,EUERMK'}
+    event_bindings: {click: saveAddExpense_click}
   - name: cancelAddExpense
     properties: {text: CANCEL}
     type: Button
     layout_properties: {grid_position: 'SCZLHG,YOTVYP'}
+    event_bindings: {click: cancelAddExpense_click}
 is_package: true
