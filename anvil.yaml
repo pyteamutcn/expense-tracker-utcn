@@ -83,17 +83,3 @@ db_schema:
       admin_ui: {width: 200, order: 1.5}
       type: string
     title: Spending
-  test:
-    client: search
-    server: full
-    columns:
-    - name: Name
-      admin_ui: {width: 200, order: 0}
-      type: string
-    - name: Phone
-      admin_ui: {width: 200, order: 1}
-      type: number
-    - name: Verified
-      admin_ui: {width: 200, order: 2}
-      type: bool
-    title: Test
