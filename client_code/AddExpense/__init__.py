@@ -33,13 +33,13 @@ class AddExpense(AddExpenseTemplate):
 
   def saveAddExpense_click(self, **event_args):
     """This method is called when the button is clicked"""
-    print("This button works kinda")
     name = self.text_nameAddExpense.text
     price = self.text_priceAddExpense.text
     category = self.text_categoryAddExpense.text
     date = self.date_AddExpense.date
 
-    print(name, price, category, date)
+    # Decomment only for terminal test
+    # print(name, price, category, date)
     
     if name and price and category and date:
       app_tables.spending.add_row(Name = name, Price = float(price), Service = category, Date = date)
