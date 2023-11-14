@@ -47,6 +47,9 @@ db_schema:
     - name: name
       admin_ui: {order: 7, width: 200}
       type: string
+    - name: email_confirmation_key
+      admin_ui: {width: 200}
+      type: string
     title: Users
   files:
     client: none

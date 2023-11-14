@@ -13,7 +13,7 @@ class AddExpense(AddExpenseTemplate):
 
   def text_nameAddExpense_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
-    if self.text_nameAddExpense.role == "input-error" and self.text_nameAddExpense.text:
+    if self.text_nameAddExpense.role == "input_error" and self.text_nameAddExpense.text:
       self.text_nameAddExpense.role = "default"
 
   def text_priceAddExpense_change(self, **event_args):

@@ -11,6 +11,7 @@ unique_ids:
   server_modules:
     ServerModule1: '1685452365618467403552812.8588'
   assets:
+    expenseTrackerHome.png: '1699967521982346746556035.2014'
     expenseTrackerLogo-logo.png: '1699605097317268280711740.2337'
     expenseTrackerLogo.png: '1699117201878625366447685.6002'
     expenseTrackerLogoAlb.png: '1699953817584798987180593.1082'

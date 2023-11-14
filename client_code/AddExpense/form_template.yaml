@@ -31,18 +31,28 @@ components:
     properties: {}
     type: TextBox
     layout_properties: {grid_position: 'QYASRV,NGIUJE PYTOYH,GUWZJT'}
+    data_bindings:
+    - {property: placeholder, code: 'self.item[''nameAddExpense'']', writeback: false}
+    event_bindings: {change: text_nameAddExpense_change}
   - name: text_priceAddExpense
     properties: {}
     type: TextBox
     layout_properties: {grid_position: 'QYASRV,NGIUJE LDSNDP,EWXZPP'}
+    data_bindings:
+    - {property: text, code: 'self.item[''priceAddExpense'']', writeback: false}
+    event_bindings: {change: text_priceAddExpense_change}
   - name: text_categoryAddExpense
     properties: {}
     type: TextBox
     layout_properties: {grid_position: 'QYASRV,NGIUJE RGWHIV,ZSTDUF'}
+    data_bindings:
+    - {property: text, code: 'self.item[''categoryAddExpense'']', writeback: false}
+    event_bindings: {change: text_categoryAddExpense_change}
   - name: date_AddExpense
     properties: {}
     type: DatePicker
     layout_properties: {grid_position: 'QYASRV,NGIUJE HHPBCT,SLSORZ'}
+    event_bindings: {change: date_AddExpense_change}
   - name: saveAddExpense
     properties: {text: SAVE}
     type: Button
