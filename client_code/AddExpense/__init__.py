@@ -13,28 +13,44 @@ class AddExpense(AddExpenseTemplate):
 
   def save_button_click(self, **event_args):
     """This method is called when the button is clicked"""
-    service = self.service_box.text
-    amount = self.amount_box.text
-    if service and amount:
+    name = self.text_nameAddExpense.text
+    price = self.text_priceAddExpense.text
+    category = self.text_categoryAddExpense.text
+    date = self.date_AddExpense.date
+    if name and price and category and date:
       self.raise_event("x-close-alert", value=True)
     else:
-      if not service:
-        self.service_box.role = "input-error"
-      if not amount:
-        self.amount_box.role = "input-error"
+      if not name:
+        self.text_nameAddExpense.role = "input_error"
+      if not price:
+        self.text_priceAddExpense.role = "input_error"
+      if not category:
+        self.text_categoryAddExpense.role = "input_error"
+      if not date:
+        self.date_AddExpense.role = "input_error"
 
   def cancel_button_click(self, **event_args):
     self.raise_event("x-close-alert", value=False)
 
-  def service_box_change(self, **event_args):
+  def name_box_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
-    if self.service_box.role == "input-error" and self.service_box.text:
-      self.service_box.role = "default"
+    if self.text_nameAddExpense.role == "input-error" and self.text_nameAddExpense.text:
+      self.text_nameAddExpense.role = "default"
 
-  def amount_box_change(self, **event_args):
+  def price_box_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
-    if self.amount_box.role == "input-error" and self.amount_box.text:
-      self.amount_box.role = "default"
+    if self.text_priceAddExpense.role == "input_error" and self.text_priceAddExpense.text:
+      self.text_priceAddExpense.role = "default"
+
+  def category_box_change(self, **event_args):
+    """This method is called when the text in this text box is edited"""
+    if self.text_categoryAddExpense.role == "input_error" and self.text_categoryAddExpense.text:
+      self.text_categoryAddExpense.role = "default"
+
+  def date_box_change(self, **event_args):
+    """This method is called when the text in this text box is edited"""
+    if self.date_AddExpense.role == "input_error" and self.date_AddExpense.date:
+      self.date_AddExpense.role = "default"
 
 
 
