@@ -16,12 +16,12 @@ def return_table():
 
 @anvil.server.callable
 def return_spending_table():
-  return app_tables.spending.search()
+  return app_tables.spending.search() #aici user specific?
 
 @anvil.server.callable
 def return_data(month):
   #Your code to process and return data goes here
-  if month == "November":
+  if month == "November": #daca filtrez bine din sales, aici vine doar data care este specifica user (i think?)
     return [
       [342, 673, 684, 933], 
       [331, 887, 520, 21],

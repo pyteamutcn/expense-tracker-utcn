@@ -1,4 +1,6 @@
-container: {type: ColumnPanel}
+container:
+  type: ColumnPanel
+  properties: {visible: true}
 components:
 - name: card_1
   properties: {role: card}

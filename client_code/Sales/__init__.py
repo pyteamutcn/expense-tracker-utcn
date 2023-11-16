@@ -54,5 +54,5 @@ class Sales(SalesTemplate):
     # Update the values in the line graph based on the selected value of the drop-down menu
     def drop_down_1_change(self, **event_args):
         """This method is called when an item is selected"""
-        self.y_values = anvil.server.call('return_data', self.drop_down_1.selected_value)
+        self.y_values = anvil.server.call('return_data', self.drop_down_1.selected_value) #aici trebe sa fac filtrare dupa user, doar la afisare
         self.create_line_graph()
