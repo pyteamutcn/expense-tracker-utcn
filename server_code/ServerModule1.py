@@ -40,12 +40,7 @@ def return_data(month): #parametru user?
       [332, 633, 400, 843],
       [331, 887, 520, 321]
     ]
-  elif month == "September":
-    return [
-      [680, 743, 202, 600], 
-      [832, 945, 432, 49],
-      [331, 887, 520, 189]
-    ]
+  
 
 @anvil.server.callable
 def return_bar_charts():
