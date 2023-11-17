@@ -82,4 +82,8 @@ db_schema:
     - name: Service
       admin_ui: {width: 200, order: 1.5}
       type: string
+    - name: owner
+      admin_ui: {width: 200, order: 3}
+      type: link_single
+      target: users
     title: Spending

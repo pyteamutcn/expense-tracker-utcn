@@ -10,18 +10,25 @@ anvil.plotly_templates.set_default("rally")
 
 #Return the contents of the Files data table. If this table included secure data, 
 #we would only want to return the data that can be user visible
+
+@anvil.server.callable
+def get_sales():  #added by Dumbo, return spending table of the current user
+  currUser = anvil.users.get_user()
+  if currUser:
+    return app_tables.spending.client_writable(owner=currUser)
+
 @anvil.server.callable
 def return_table():
   return app_tables.files.search()
 
 @anvil.server.callable
 def return_spending_table():
-  return app_tables.spending.search() #aici user specific?
+  return app_tables.spending.search()
 
 @anvil.server.callable
-def return_data(month):
+def return_data(month): #parametru user?
   #Your code to process and return data goes here
-  if month == "November": #daca filtrez bine din sales, aici vine doar data care este specifica user (i think?)
+  if month == "November":
     return [
       [342, 673, 684, 933], 
       [331, 887, 520, 21],

@@ -24,7 +24,9 @@ class Sales(SalesTemplate):
 
         # Set the contents of the data grid to the contents of the Files table.
         # This is done on the secure server where you might only want to return user-visible data
-        self.repeating_panel_1.items = anvil.server.call('return_spending_table')
+        self.user_sales = anvil.server.call('get_sales')
+        self.repeating_panel_1.items = self.user_sales.search()
+
   
     def create_line_graph(self):
         self.plot_1.data = [

@@ -37,12 +37,15 @@ class AddExpense(AddExpenseTemplate):
     price = self.text_priceAddExpense.text
     category = self.text_categoryAddExpense.text
     date = self.date_AddExpense.date
+    currUser = anvil.users.get_user() #added user specific sales records, so that the sever filters only current user specific data "Dumbo"
+    #added new record on spending table so that rows can be identified by user "Dumbo"
+
 
     # Decomment only for terminal test
     # print(name, price, category, date)
     
-    if name and price and category and date:
-      app_tables.spending.add_row(Name = name, Price = float(price), Service = category, Date = date)
+    if name and price and category and date and currUser:
+      app_tables.spending.add_row(Name = name, Price = float(price), Service = category, Date = date, owner= currUser)
     else:
       if not name:
         self.text_nameAddExpense.role = "input_error"
@@ -52,6 +55,8 @@ class AddExpense(AddExpenseTemplate):
         self.text_categoryAddExpense.role = "input_error"
       if not date:
         self.date_AddExpense.role = "input_error"
+      #if not currUser: ??
+ 
 
   def cancelAddExpense_click(self, **event_args):
     self.raise_event("x-close-alert", value=False)
