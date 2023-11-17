@@ -39,6 +39,7 @@ class AddExpense(AddExpenseTemplate):
     date = self.date_AddExpense.date
     currUser = anvil.users.get_user() #added user specific sales records, so that the sever filters only current user specific data "Dumbo"
     #added new record on spending table so that rows can be identified by user "Dumbo"
+   # categorie_DD = self.category_dd.items = [(r['Name'],r) for r in app_tables.categories.search()]
 
 
     # Decomment only for terminal test
@@ -60,6 +61,14 @@ class AddExpense(AddExpenseTemplate):
 
   def cancelAddExpense_click(self, **event_args):
     self.raise_event("x-close-alert", value=False)
+
+  def text_priceAddExpense_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+
+  def drop_down_1_change(self, **event_args):
+    """This method is called when an item is selected"""
+    pass
 
 
 

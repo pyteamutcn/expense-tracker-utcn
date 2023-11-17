@@ -87,3 +87,11 @@ db_schema:
       type: link_single
       target: users
     title: Spending
+  categories:
+    client: search
+    server: full
+    columns:
+    - name: Name
+      admin_ui: {width: 200, order: 0}
+      type: string
+    title: Categories

@@ -26,11 +26,11 @@ def return_spending_table():
   return app_tables.spending.search()
 
 @anvil.server.callable
-def return_data(month): #parametru user?
+def return_data(month):
   #Your code to process and return data goes here
   if month == "November":
     return [
-      [342, 673, 684, 933], 
+      [342, 673, 684, 933], #week1 week2 week3 week4
       [331, 887, 520, 21],
       [331, 887, 520, 300]
     ]
