@@ -11,6 +11,8 @@ class AddExpense(AddExpenseTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
+    self.drop_down_1.items = [(row["Name"], row) for row in app_tables.categories.search()]
+
   def text_nameAddExpense_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
     if self.text_nameAddExpense.role == "input_error" and self.text_nameAddExpense.text:
@@ -39,14 +41,13 @@ class AddExpense(AddExpenseTemplate):
     date = self.date_AddExpense.date
     currUser = anvil.users.get_user() #added user specific sales records, so that the sever filters only current user specific data "Dumbo"
     #added new record on spending table so that rows can be identified by user "Dumbo"
-   # categorie_DD = self.category_dd.items = [(r['Name'],r) for r in app_tables.categories.search()]
-
+    categori = self.drop_down_1.selected_value
 
     # Decomment only for terminal test
     # print(name, price, category, date)
     
-    if name and price and category and date and currUser:
-      app_tables.spending.add_row(Name = name, Price = float(price), Service = category, Date = date, owner= currUser)
+    if name and price and category and date and currUser and categori:
+      app_tables.spending.add_row(Name = name, Price = float(price), Service = category, Date = date, owner= currUser, category_dd= categori)
     else:
       if not name:
         self.text_nameAddExpense.role = "input_error"
