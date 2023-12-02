@@ -11,7 +11,7 @@ class AddExpense(AddExpenseTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    self.drop_down_1.items = [(row["Name"], row) for row in app_tables.categories.search()]
+    self.drop_down_1.items = [(row["Name"], row) for row in app_tables.categories.search()] #added by DUmbo, updated dropdown values
 
   def text_nameAddExpense_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
@@ -41,7 +41,7 @@ class AddExpense(AddExpenseTemplate):
     date = self.date_AddExpense.date
     currUser = anvil.users.get_user() #added user specific sales records, so that the sever filters only current user specific data "Dumbo"
     #added new record on spending table so that rows can be identified by user "Dumbo"
-    categori = self.drop_down_1.selected_value
+    categori = self.drop_down_1.selected_value #addded by Dumbo, matches the sale to the category in the DB
 
     # Decomment only for terminal test
     # print(name, price, category, date)
@@ -67,9 +67,20 @@ class AddExpense(AddExpenseTemplate):
     """This method is called when the user presses Enter in this text box"""
     pass
 
+  def text_categoryAddExpense_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+
   def drop_down_1_change(self, **event_args):
     """This method is called when an item is selected"""
     pass
+
+  def addCategory_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    category = self.text_categoryAddExpense.text #added by Dumbo, you can add custom categories by writing in the textbox, updates the textbox
+    if category:
+      app_tables.categories.add_row(Name= category)
+      self.drop_down_1.items = [(row["Name"], row) for row in app_tables.categories.search()]
 
 
 

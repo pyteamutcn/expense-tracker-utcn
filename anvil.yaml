@@ -92,7 +92,7 @@ db_schema:
       target: categories
     title: Spending
   categories:
-    client: search
+    client: full
     server: full
     columns:
     - name: Name
