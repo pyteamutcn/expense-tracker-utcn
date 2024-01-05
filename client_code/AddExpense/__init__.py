@@ -13,7 +13,8 @@ class AddExpense(AddExpenseTemplate):
     currUser = anvil.users.get_user() #added by Dumbo
     print(currUser)
    # aux = app_tables.categories.get(Owner=currUser))
-    self.drop_down_1.items = [(row["Name"], row) for row in app_tables.categories.search(Owner=currUser)] #added by DUmbo, updated dropdown values
+    #self.drop_down_1.items = [(row["Name"], row) for row in app_tables.categories.search(Owner=None)]
+    self.drop_down_1.items = [(row["Name"], row) for row in (((app_tables.categories.search(Owner=currUser) ) and (app_tables.categories.search(Owner=None))) or ((app_tables.categories.search(Owner=None)))] #added by DUmbo, updated dropdown values
 
   def text_nameAddExpense_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
