@@ -37,6 +37,7 @@ components:
       name: label_7
       layout_properties: {grid_position: 'PGTFGN,RWDROK WZCEHY,EIALHQ'}
       data_bindings: []
+      event_bindings: {show: label_7_show}
   - type: ColumnPanel
     properties: {role: card, col_widths: '{"GHKWWK":20,"VBOZUY":40}'}
     name: card_4

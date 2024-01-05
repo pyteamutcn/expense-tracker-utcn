@@ -30,7 +30,24 @@ class Sales(SalesTemplate):
         self.user_sales = anvil.server.call('get_sales')
         self.repeating_panel_1.items = self.user_sales.search()
 
-        .
+    def form_show(self, **event_args):
+      # Display current month spendings when the form is shown
+      self.update_current_month_spendings()
+
+    def update_current_month_spendings(self):
+        # Dynamically get the current month and year
+        current_month = datetime.now().strftime("%B")
+        current_year = datetime.now().year
+        
+
+        # Fetch current month's spendings
+        current_month_spendings = anvil.server.call('return_month_spend', current_month, current_year)
+
+        # Calculate the total spendings for the current month
+        total_spendings = sum(sum(category) for category in current_month_spendings)
+
+        # Update the label text
+        self.label_7.text = f"${total_spendings:.2f}"
       
 
   
@@ -64,3 +81,7 @@ class Sales(SalesTemplate):
         """This method is called when an item is selected"""
         self.y_values = anvil.server.call('return_data', self.drop_down_1.selected_value) #aici trebe sa fac filtrare dupa user, doar la afisare
         self.create_line_graph()
+
+    def label_7_show(self, **event_args):
+      """This method is called when the Label is shown on the screen"""
+      self.update_current_month_spendings()

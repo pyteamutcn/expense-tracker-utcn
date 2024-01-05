@@ -26,6 +26,19 @@ def return_spending_table():
   return app_tables.spending.search()
 
 @anvil.server.callable
+def return_month_spend(month,year):
+  data_for_month = [
+        row for row in app_tables.spending.search() 
+        if row['Date'].month == month and row['Date'].year == year
+    ]
+
+
+  return data_for_month
+
+
+
+
+@anvil.server.callable
 def return_data(month):
   #Your code to process and return data goes here
   if month == "November":
