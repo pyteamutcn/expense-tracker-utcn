@@ -7,11 +7,14 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import plotly.graph_objects as go
+from datetime import datetime 
+
 
 class Sales(SalesTemplate):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
+        
 
         # Any code you write here will run before the form opens.
         # The x-axis of plot_1 will be the months of the year. The y-axis will be dummy data returned from the server
@@ -26,7 +29,13 @@ class Sales(SalesTemplate):
         # This is done on the secure server where you might only want to return user-visible data
         self.user_sales = anvil.server.call('get_sales')
         self.repeating_panel_1.items = self.user_sales.search()
-        monthly_spend = '1000'
+
+        import datetime
+        aux = DatePicker(format="%d %m %Y")
+        aux.pick_time = True
+        aux.date = datetime.datetime.now()
+        print(aux)
+      
 
   
     def create_line_graph(self):
