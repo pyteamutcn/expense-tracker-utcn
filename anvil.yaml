@@ -98,4 +98,8 @@ db_schema:
     - name: Name
       admin_ui: {width: 200, order: 0}
       type: string
+    - name: Owner
+      admin_ui: {width: 200, order: 1}
+      type: link_single
+      target: users
     title: Categories

@@ -10,7 +10,8 @@ class AddExpense(AddExpenseTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-
+    currUser = anvil.users.get_user() #added by Dumbo
+    #if(app_tables.categories.get(Owner=currUser)):
     self.drop_down_1.items = [(row["Name"], row) for row in app_tables.categories.search()] #added by DUmbo, updated dropdown values
 
   def text_nameAddExpense_change(self, **event_args):
@@ -79,8 +80,10 @@ class AddExpense(AddExpenseTemplate):
     """This method is called when the button is clicked"""
     category = self.text_categoryAddExpense.text #added by Dumbo, you can add custom categories by writing in the textbox, updates the textbox
     if category:
-      app_tables.categories.add_row(Name= category)
-      self.drop_down_1.items = [(row["Name"], row) for row in app_tables.categories.search()]
+      currUser = anvil.users.get_user()
+      app_tables.categories.add_row(Name= category, Owner=currUser) #added by Dumbo, matches the custom category to the current user
+      if(app_tables.categories.get(Owner=currUser)):
+        self.drop_down_1.items = [(row["Name"], row) for row in app_tables.categories.search()]
 
 
 
