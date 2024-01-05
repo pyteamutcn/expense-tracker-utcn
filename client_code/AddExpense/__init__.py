@@ -11,8 +11,9 @@ class AddExpense(AddExpenseTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     currUser = anvil.users.get_user() #added by Dumbo
-    #if(app_tables.categories.get(Owner=currUser)):
-    self.drop_down_1.items = [(row["Name"], row) for row in app_tables.categories.search()] #added by DUmbo, updated dropdown values
+    print(currUser)
+   # aux = app_tables.categories.get(Owner=currUser))
+    self.drop_down_1.items = [(row["Name"], row) for row in app_tables.categories.search(Owner=currUser)] #added by DUmbo, updated dropdown values
 
   def text_nameAddExpense_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
