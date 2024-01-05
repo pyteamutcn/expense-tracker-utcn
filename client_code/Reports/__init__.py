@@ -1,5 +1,6 @@
 from ._anvil_designer import ReportsTemplate
 from anvil import *
+from datetime import datetime
 import plotly.graph_objects as go
 import anvil.server
 import anvil.users
@@ -41,6 +42,37 @@ class Reports(ReportsTemplate):
         values=[2650, 755, 9525]
       )
     ]
+
+  def label_7_show(self, **event_args):
+    """This method is called when the Label is shown on the screen"""
+    monthly_spendings = self.update_current_month_spendings()
+    self.label_7.text = f"${monthly_spendings:.2f}"
+
+  def update_current_month_spendings(self):
+      # Dynamically get the current month and year
+      current_month = datetime.now().month
+      current_year = datetime.now().year
+        
+
+      # Fetch current month's spendings
+      current_month_spendings = anvil.server.call('return_month_spend', current_month, current_year)
+
+      # Calculate the total spendings for the current month
+      total_spendings = 0
+      for row in current_month_spendings:
+        total_spendings = total_spendings + row['Price']
+
+      # Update the label text
+      return total_spendings
+
+
+  def label_8_show(self, **event_args):
+      """This method is called when the Label is shown on the screen"""
+      # Calculate the average spendings for the past 3 months
+      average_spendings = self.calculate_average_spendings()
+        
+      # Update the label text
+      self.label_8.text = f"${average_spendings:.2f}"
     
   def calculate_average_spendings(self):
       # Get the current month and year
