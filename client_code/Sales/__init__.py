@@ -30,13 +30,9 @@ class Sales(SalesTemplate):
         self.user_sales = anvil.server.call('get_sales')
         self.repeating_panel_1.items = self.user_sales.search()
 
-    def form_show(self, **event_args):
-      # Display current month spendings when the form is shown
-      self.update_current_month_spendings()
-
     def update_current_month_spendings(self):
         # Dynamically get the current month and year
-        current_month = datetime.now().strftime("%B")
+        current_month = datetime.now().month
         current_year = datetime.now().year
         
 
@@ -44,10 +40,12 @@ class Sales(SalesTemplate):
         current_month_spendings = anvil.server.call('return_month_spend', current_month, current_year)
 
         # Calculate the total spendings for the current month
-        total_spendings = sum(sum(category) for category in current_month_spendings)
+        total_spendings = 0
+        for row in current_month_spendings:
+          total_spendings = total_spendings + row['Price']
 
         # Update the label text
-        self.label_7.text = f"${total_spendings:.2f}"
+        return total_spendings
       
 
   
@@ -84,4 +82,5 @@ class Sales(SalesTemplate):
 
     def label_7_show(self, **event_args):
       """This method is called when the Label is shown on the screen"""
-      self.update_current_month_spendings()
+      monthly_spendings = self.update_current_month_spendings()
+      self.label_7.text = f"${monthly_spendings:.2f}"

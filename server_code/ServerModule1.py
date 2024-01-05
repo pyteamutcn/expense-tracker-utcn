@@ -27,12 +27,12 @@ def return_spending_table():
 
 @anvil.server.callable
 def return_month_spend(month,year):
+  currUser = anvil.users.get_user()
   data_for_month = [
-        row for row in app_tables.spending.search() 
-        if row['Date'].month == month and row['Date'].year == year
+        row for row in app_tables.spending.search()
+        if (row['Date'].month == month and row['Date'].year == year and row['owner'] == currUser)
     ]
-
-
+  print(month)
   return data_for_month
 
 
