@@ -24,7 +24,8 @@ components:
     type: Label
     layout_properties: {grid_position: 'BOAZNN,MYDWWS'}
     data_bindings:
-    - {property: text, code: 'self.item[''category_dd.'']', writeback: false}
+    - {property: text, code: 'self.item[''category_dd''][''Name''] if self.item[''category_dd'']
+        is not None else ''No Category''', writeback: false}
   - name: label_4
     properties: {}
     type: Label
