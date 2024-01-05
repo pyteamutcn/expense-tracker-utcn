@@ -79,9 +79,6 @@ db_schema:
     - name: Date
       admin_ui: {width: 200, order: 2}
       type: date
-    - name: Service
-      admin_ui: {width: 200, order: 1.5}
-      type: string
     - name: owner
       admin_ui: {width: 200, order: 3}
       type: link_single

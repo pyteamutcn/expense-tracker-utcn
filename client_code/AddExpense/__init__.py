@@ -11,10 +11,7 @@ class AddExpense(AddExpenseTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     currUser = anvil.users.get_user() #added by Dumbo
-    print(currUser)
-   # aux = app_tables.categories.get(Owner=currUser))
-    #self.drop_down_1.items = [(row["Name"], row) for row in app_tables.categories.search(Owner=None)]
-    self.drop_down_1.items = [(row["Name"], row) for row in (((app_tables.categories.search(Owner=currUser) ) and (app_tables.categories.search(Owner=None))) or ((app_tables.categories.search(Owner=None)))] #added by DUmbo, updated dropdown values
+    self.drop_down_1.items = [(row["Name"], row) for row in (app_tables.categories.search(Owner=None))] + [(row["Name"], row) for row in (app_tables.categories.search(Owner=currUser))]#added by DUmbo, updated dropdown values
 
   def text_nameAddExpense_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
@@ -40,7 +37,7 @@ class AddExpense(AddExpenseTemplate):
     """This method is called when the button is clicked"""
     name = self.text_nameAddExpense.text
     price = self.text_priceAddExpense.text
-    category = self.text_categoryAddExpense.text
+    #category = self.text_categoryAddExpense.text
     date = self.date_AddExpense.date
     currUser = anvil.users.get_user() #added user specific sales records, so that the sever filters only current user specific data "Dumbo"
     #added new record on spending table so that rows can be identified by user "Dumbo"
@@ -49,8 +46,8 @@ class AddExpense(AddExpenseTemplate):
     # Decomment only for terminal test
     # print(name, price, category, date)
     
-    if name and price and category and date and currUser and categori:
-      app_tables.spending.add_row(Name = name, Price = float(price), Service = category, Date = date, owner= currUser, category_dd= categori)
+    if name and price and date and currUser and categori:
+      app_tables.spending.add_row(Name = name, Price = float(price), Date = date, owner= currUser, category_dd= categori)
     else:
       if not name:
         self.text_nameAddExpense.role = "input_error"
@@ -84,8 +81,7 @@ class AddExpense(AddExpenseTemplate):
     if category:
       currUser = anvil.users.get_user()
       app_tables.categories.add_row(Name= category, Owner=currUser) #added by Dumbo, matches the custom category to the current user
-      if(app_tables.categories.get(Owner=currUser)):
-        self.drop_down_1.items = [(row["Name"], row) for row in app_tables.categories.search()]
+      self.drop_down_1.items = [(row["Name"], row) for row in (app_tables.categories.search(Owner=None))] + [(row["Name"], row) for row in (app_tables.categories.search(Owner=currUser))]#added by DUmbo, updated dropdown values
 
 
 
