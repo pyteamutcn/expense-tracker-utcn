@@ -26,6 +26,7 @@ class Sales(SalesTemplate):
         # This is done on the secure server where you might only want to return user-visible data
         self.user_sales = anvil.server.call('get_sales')
         self.repeating_panel_1.items = self.user_sales.search()
+        monthly_spend = '1000'
 
   
     def create_line_graph(self):
