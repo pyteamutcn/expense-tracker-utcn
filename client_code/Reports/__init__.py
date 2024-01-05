@@ -42,4 +42,30 @@ class Reports(ReportsTemplate):
       )
     ]
     
+  def calculate_average_spendings(self):
+      # Get the current month and year
+      current_month = datetime.now().month
+      current_year = datetime.now().year
+
+      # Calculate the average spendings for the 3 months before the current month
+      total_spendings = 0
+      for i in range(1, 4):  # Exclude the current month
+          # Calculate the month and year for each of the 3 months before the current month
+          past_month = (current_month - i) % 12 or 12
+          if current_month > 3 :
+            past_year = current_year
+          else:
+            past_year = current_year - 1 if past_month in (10, 11, 12) else current_year
+
+          # Fetch spendings for each of the 3 months before the current month
+          past_month_spendings = anvil.server.call('return_month_spend', past_month, past_year)
+
+          # Calculate total spendings for each of the 3 months before the current month
+          for row in past_month_spendings:
+              total_spendings += row['Price']
+
+      # Calculate the average spendings
+      average_spendings = total_spendings / 3 if total_spendings > 0 else 0
+      return average_spendings
+    
 
