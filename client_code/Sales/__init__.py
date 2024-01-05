@@ -30,11 +30,7 @@ class Sales(SalesTemplate):
         self.user_sales = anvil.server.call('get_sales')
         self.repeating_panel_1.items = self.user_sales.search()
 
-        import datetime
-        aux = DatePicker(format="%d %m %Y")
-        aux.pick_time = True
-        aux.date = datetime.datetime.now()
-        print(aux)
+        .
       
 
   
