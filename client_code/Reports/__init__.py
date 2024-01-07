@@ -19,17 +19,17 @@ class Reports(ReportsTemplate):
       go.Bar(
         x=[2019, 2020, 2021, 2022, 2023],
         y=[510, 620, 687, 745, 881],
-        name="Europe"
+        name="Clothes"
     ),
       go.Bar(
         x=[2019, 2020, 2021, 2022, 2023],
         y=[733, 880, 964, 980, 1058],
-        name="Americas"
+        name="Food"
     ),
       go.Bar(
         x=[2019, 2020, 2021, 2022, 2023],
         y=[662, 728, 794, 814, 906],
-        name="Asia"
+        name="Entertainment"
     )
     ]
 
@@ -38,7 +38,7 @@ class Reports(ReportsTemplate):
 
     self.plot_3.data = [
       go.Pie(
-        labels=["Mobile", "Tablet", "Desktop"],
+        labels=["Hygene", "Junk Food", "Bills"],
         values=[2650, 755, 9525]
       )
     ]

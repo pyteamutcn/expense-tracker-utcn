@@ -61,16 +61,16 @@ def return_bar_charts():
   fig = go.Figure(
     [
       go.Bar(
-        y=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"],
+        y=["Food", "Entertainment", "Clothes", "Hygene", "Junk Food"],
         x=[13, 21, 64, 119, 94],
         orientation='h',
-        name="New Users"
+        name="Last Month"
         ),
       go.Bar(
-        y=["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"],
+        y=["Food", "Entertainment", "Clothes", "Hygene", "Junk Food"],
         x=[24, 35, 80, 250, 274],
         orientation='h',
-        name="Existing Users"
+        name="This Month"
       ),
     ]
   )
