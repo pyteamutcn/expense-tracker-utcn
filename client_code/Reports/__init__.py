@@ -15,13 +15,13 @@ class Reports(ReportsTemplate):
     # Any code you write here will run before the form opens.
 
     #Populate plot_1 with dummy data. All three Bar charts will be added to the same figure
-    self.clothesHandler("January", 2024)
+    clothesData = self.clothesHandler(datetime.now().month, datetime.now().year)
     
     self.plot_1.data = [
       go.Bar(
-        x=[2019, 2020, 2021, 2022, 2023],
-        y=[510, 620, 687, 745, 881],
-        name="Clothes"
+        x = clothesData[0],
+        y = clothesData[1],
+        name = clothesData[2]
     ),
       go.Bar(
         x=[2019, 2020, 2021, 2022, 2023],
@@ -52,6 +52,7 @@ class Reports(ReportsTemplate):
 
   def costCategoriePerLuna(self, month, year, category):
     currUser = anvil.users.get_user()
+    #print(category)
     data_category_month = [
       row for row in app_tables.spending.search()
         if (row['Date'].month == month and row['Date'].year == year
@@ -61,7 +62,6 @@ class Reports(ReportsTemplate):
     price = 0
     for row in data_category_month:
       price += row['Price']
-    print(price)
     return price
     
   
@@ -102,11 +102,11 @@ class Reports(ReportsTemplate):
 
     for i in range(0, 5):
       rez[1].append(self.costCategoriePerLuna(rezMonth[i], rezYear[i], "Clothes"))
-    print(rez[1])
 
-    
-    
-  
+    rez[2].append("Clothes")
+
+    return rez
+
   def label_7_show(self, **event_args):
     """This method is called when the Label is shown on the screen"""
     monthly_spendings = self.update_current_month_spendings()
