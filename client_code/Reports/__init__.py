@@ -15,6 +15,8 @@ class Reports(ReportsTemplate):
     # Any code you write here will run before the form opens.
 
     #Populate plot_1 with dummy data. All three Bar charts will be added to the same figure
+    self.clothesHandler("January", 2024)
+    
     self.plot_1.data = [
       go.Bar(
         x=[2019, 2020, 2021, 2022, 2023],
@@ -48,6 +50,63 @@ class Reports(ReportsTemplate):
       )
     ]
 
+  def costCategoriePerLuna(self, month, year, category):
+    currUser = anvil.users.get_user()
+    data_category_month = [
+      row for row in app_tables.spending.search()
+        if (row['Date'].month == month and row['Date'].year == year
+            and row['owner'] == currUser and row['category_dd']['Name'] == category)    
+    ]
+
+    price = 0
+    for row in data_category_month:
+      price += row['Price']
+    print(price)
+    return price
+    
+  
+  def clothesHandler(self, currMonth, currYear):
+    rez = [[], [], []]
+    
+    string_to_int = {
+    "January": 1,
+    "February": 2,
+    "March": 3,
+    "April": 4,
+    "May": 5,
+    "June": 6,
+    "July": 7,
+    "August": 8,
+    "September": 9,
+    "October": 10,
+    "November": 11,
+    "December": 12,
+  }
+    
+    rezMonth = []
+    rezYear = []
+    
+    for i in range(0, 5):  # Exclude the current month
+            # Calculate the month and year for each of the 3 months before the current month
+            past_month = (string_to_int[currMonth] - i) % 12 or 12
+            rezMonth.append(past_month)
+            if string_to_int[currMonth] > 5 :
+              past_year = currYear
+            else:
+              past_year = currYear - 1 if past_month in (8, 9, 10, 11, 12) else currYear
+            rezYear.append(past_year)
+
+    ## past_month = (current_month - i) % 12 or 12
+    for i in range(0, 5):
+      rez[0].append(rezMonth[i])
+
+    for i in range(0, 5):
+      rez[1].append(self.costCategoriePerLuna(rezMonth[i], rezYear[i], "Clothes"))
+    print(rez[1])
+
+    
+    
+  
   def label_7_show(self, **event_args):
     """This method is called when the Label is shown on the screen"""
     monthly_spendings = self.update_current_month_spendings()
