@@ -16,27 +16,30 @@ class Reports(ReportsTemplate):
 
     #Populate plot_1 with dummy data. All three Bar charts will be added to the same figure
     clothesData = self.clothesHandler(datetime.now().month, datetime.now().year)
-    
+    foodData = self.foodHandler(datetime.now().month, datetime.now().year)
+    entertainmentData = self.entertainmentHandler(datetime.now().month, datetime.now().year)
+    billsData = self.billsHandler(datetime.now().month, datetime.now().year)
+
     self.plot_1.data = [
       go.Bar(
         x = clothesData[0],
         y = clothesData[1],
-        name = clothesData[2]
+        name = clothesData[2][0]
     ),
       go.Bar(
-        x=[2019, 2020, 2021, 2022, 2023],
-        y=[733, 880, 964, 980, 1058],
-        name="Food"
+        x = foodData[0],
+        y = foodData[1],
+        name = foodData[2][0]
     ),
       go.Bar(
-        x=[2019, 2020, 2021, 2022, 2023],
-        y=[662, 728, 794, 814, 906],
-        name="Entertainment"
+        x = entertainmentData[0],
+        y = entertainmentData[1],
+        name = entertainmentData[2][0]
     ),
       go.Bar(
-        x=[2019, 2020, 2021, 2022, 2023],
-        y=[662, 728, 794, 814, 906],
-        name="Bills"
+        x = billsData[0],
+        y = billsData[1],
+        name = billsData[2][0]
     )
     ]
 
@@ -88,9 +91,9 @@ class Reports(ReportsTemplate):
     
     for i in range(0, 5):  # Exclude the current month
             # Calculate the month and year for each of the 3 months before the current month
-            past_month = (string_to_int[currMonth] - i) % 12 or 12
+            past_month = (currMonth - i) % 12 or 12
             rezMonth.append(past_month)
-            if string_to_int[currMonth] > 5 :
+            if currMonth > 5 :
               past_year = currYear
             else:
               past_year = currYear - 1 if past_month in (8, 9, 10, 11, 12) else currYear
@@ -106,6 +109,132 @@ class Reports(ReportsTemplate):
     rez[2].append("Clothes")
 
     return rez
+
+  def foodHandler(self, currMonth, currYear):
+      rez = [[], [], []]
+      
+      string_to_int = {
+      "January": 1,
+      "February": 2,
+      "March": 3,
+      "April": 4,
+      "May": 5,
+      "June": 6,
+      "July": 7,
+      "August": 8,
+      "September": 9,
+      "October": 10,
+      "November": 11,
+      "December": 12,
+    }
+      
+      rezMonth = []
+      rezYear = []
+      
+      for i in range(0, 5):  # Exclude the current month
+              # Calculate the month and year for each of the 3 months before the current month
+              past_month = (currMonth - i) % 12 or 12
+              rezMonth.append(past_month)
+              if currMonth > 5 :
+                past_year = currYear
+              else:
+                past_year = currYear - 1 if past_month in (8, 9, 10, 11, 12) else currYear
+              rezYear.append(past_year)
+  
+      ## past_month = (current_month - i) % 12 or 12
+      for i in range(0, 5):
+        rez[0].append(rezMonth[i])
+  
+      for i in range(0, 5):
+        rez[1].append(self.costCategoriePerLuna(rezMonth[i], rezYear[i], "Food"))
+  
+      rez[2].append("Food")
+  
+      return rez
+
+  def entertainmentHandler(self, currMonth, currYear):
+      rez = [[], [], []]
+      
+      string_to_int = {
+      "January": 1,
+      "February": 2,
+      "March": 3,
+      "April": 4,
+      "May": 5,
+      "June": 6,
+      "July": 7,
+      "August": 8,
+      "September": 9,
+      "October": 10,
+      "November": 11,
+      "December": 12,
+    }
+      
+      rezMonth = []
+      rezYear = []
+      
+      for i in range(0, 5):  # Exclude the current month
+              # Calculate the month and year for each of the 3 months before the current month
+              past_month = (currMonth - i) % 12 or 12
+              rezMonth.append(past_month)
+              if currMonth > 5 :
+                past_year = currYear
+              else:
+                past_year = currYear - 1 if past_month in (8, 9, 10, 11, 12) else currYear
+              rezYear.append(past_year)
+  
+      ## past_month = (current_month - i) % 12 or 12
+      for i in range(0, 5):
+        rez[0].append(rezMonth[i])
+  
+      for i in range(0, 5):
+        rez[1].append(self.costCategoriePerLuna(rezMonth[i], rezYear[i], "Entertainment"))
+  
+      rez[2].append("Entertainment")
+  
+      return rez
+
+  def billsHandler(self, currMonth, currYear):
+      rez = [[], [], []]
+      
+      string_to_int = {
+      "January": 1,
+      "February": 2,
+      "March": 3,
+      "April": 4,
+      "May": 5,
+      "June": 6,
+      "July": 7,
+      "August": 8,
+      "September": 9,
+      "October": 10,
+      "November": 11,
+      "December": 12,
+    }
+      
+      rezMonth = []
+      rezYear = []
+      
+      for i in range(0, 5):  # Exclude the current month
+              # Calculate the month and year for each of the 3 months before the current month
+              past_month = (currMonth - i) % 12 or 12
+              rezMonth.append(past_month)
+              if currMonth > 5 :
+                past_year = currYear
+              else:
+                past_year = currYear - 1 if past_month in (8, 9, 10, 11, 12) else currYear
+              rezYear.append(past_year)
+  
+      ## past_month = (current_month - i) % 12 or 12
+      for i in range(0, 5):
+        rez[0].append(rezMonth[i])
+  
+      for i in range(0, 5):
+        rez[1].append(self.costCategoriePerLuna(rezMonth[i], rezYear[i], "Bills"))
+  
+      rez[2].append("Bills")
+  
+      return rez
 
   def label_7_show(self, **event_args):
     """This method is called when the Label is shown on the screen"""
