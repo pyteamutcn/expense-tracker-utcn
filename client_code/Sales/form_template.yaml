@@ -113,7 +113,8 @@ components:
         border: ''
         enabled: true
         foreground: ''
-        items: [November, October, September]
+        items: [January, February, March, April, May, June, July, August, September,
+          October, November, December]
         visible: true
         font_size: null
         font: ''

@@ -19,9 +19,9 @@ class Sales(SalesTemplate):
         # Any code you write here will run before the form opens.
         # The x-axis of plot_1 will be the months of the year. The y-axis will be dummy data returned from the server
         self.x_weeks = ["Week1", "Week2", "Week3", "Week4"]
-        
+      
         # Get the y-values from the server
-        self.y_values = anvil.server.call('return_data', "October")
+        self.y_values = anvil.server.call('return_data', self.drop_down_1.selected_value)
         #self.display_table(app_tables.spending)
         self.create_line_graph()
 
@@ -61,14 +61,14 @@ class Sales(SalesTemplate):
                 y=self.y_values[1],
                 #fill="tonexty",
                 line_color = 'green',
-                name="Car Expense"
+                name="Entertainment"
             ),
             go.Scatter(
                 x=self.x_weeks,
                 y=self.y_values[2],
                 #fill="tozeroy",
                 line_color = 'blue',
-                name="Personal Expense"
+                name="Bills"
             )
         ]
 
@@ -118,6 +118,3 @@ class Sales(SalesTemplate):
         average_spendings = total_spendings / 3 if total_spendings > 0 else 0
         return average_spendings
 
-    def plot_1_click(self, points, **event_args):
-      """This method is called when a data point is clicked."""
-      pass
