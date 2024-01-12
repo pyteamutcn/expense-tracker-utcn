@@ -19,7 +19,6 @@ class Reports(ReportsTemplate):
     foodData = self.foodHandler(datetime.now().month, datetime.now().year)
     entertainmentData = self.entertainmentHandler(datetime.now().month, datetime.now().year)
     billsData = self.billsHandler(datetime.now().month, datetime.now().year)
-
     self.plot_1.data = [
       go.Bar(
         x = clothesData[0],
@@ -42,14 +41,14 @@ class Reports(ReportsTemplate):
         name = billsData[2][0]
     )
     ]
-
+    currMonth = datetime.now().month
+    currYear = datetime.now().year
     #Return the figure from the server to populate plot_2
-    self.plot_2.figure = anvil.server.call('return_bar_charts')
-
+    self.plot_2.figure = anvil.server.call('return_bar_charts', currMonth, currYear)
     self.plot_3.data = [
       go.Pie(
-        labels=["Hygene", "Junk Food", "Bills"],
-        values=[2650, 755, 9525]
+        labels=["Food", "Entertainment", "Bills", "Clothes"],
+        values=[foodData[1][4], entertainmentData[1][4], billsData[1][4], clothesData[1][4]]
       )
     ]
 
@@ -109,7 +108,6 @@ class Reports(ReportsTemplate):
 
     rez[0].reverse()
     rez[1].reverse()
-
     rez[2].append("Clothes")
 
     return rez
