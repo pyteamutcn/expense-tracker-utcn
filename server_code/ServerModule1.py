@@ -41,9 +41,10 @@ def return_week1_spend(month,year): #adauga categorie daca ne hotaram sa facem s
         row for row in app_tables.spending.search()
         if (row['Date'].day >= 1 and row['Date'].day <=7 and row['Date'].month == month and row['Date'].year == year and row['owner'] == currUser)    
     ]
+  week1_total = 0
   for row in data_for_month:
-    week1_spend += row['Price']
-    print(week1)
+    week1_total += row['Price']
+    print(week1_total)
   return data_for_month
 
 
