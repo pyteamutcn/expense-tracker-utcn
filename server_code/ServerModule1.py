@@ -32,7 +32,6 @@ def return_month_spend(month,year):
         row for row in app_tables.spending.search()
         if (row['Date'].month == month and row['Date'].year == year and row['owner'] == currUser)
     ]
-  #print(month)
   return data_for_month
 
 @anvil.server.callable
@@ -40,19 +39,18 @@ def return_week1_spend(month,year): #adauga categorie daca ne hotaram sa facem s
   currUser = anvil.users.get_user()
   data_for_month = [
         row for row in app_tables.spending.search()
-        #if (row['Date'].day >= 1 and row['Date'].day <=7 and row['Date'].month == month and row['Date'].year == year 
-           # and row['owner'] == currUser)
-        if(row['Date'] != 0)
-    
+        if (row['Date'].day >= 1 and row['Date'].day <=7 and row['Date'].month == month and row['Date'].year == year and row['owner'] == currUser)    
     ]
-  print(data_for_month)
+  for row in data_for_month:
+    week1_spend += row['Price']
+    print(week1)
   return data_for_month
 
 
 @anvil.server.callable
 def return_data(month):
   #Your code to process and return data goes here
-  week1 = anvil.server.call('return_week1_spend', "January", "2024")
+  week1 = anvil.server.call('return_week1_spend', 1, 2024)
   print(week1)
   if month == "January":
     return [
