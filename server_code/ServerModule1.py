@@ -26,16 +26,27 @@ def return_spending_table():
   return app_tables.spending.search()
 
 @anvil.server.callable
-def return_month_spend(month,year):
+def return_month_spend(month,year): 
   currUser = anvil.users.get_user()
   data_for_month = [
         row for row in app_tables.spending.search()
         if (row['Date'].month == month and row['Date'].year == year and row['owner'] == currUser)
     ]
-  print(month)
+  #print(month)
   return data_for_month
 
-
+@anvil.server.callable
+def return_week1_spend(month,year): #adauga categorie daca ne hotaram sa facem si cu categorii custom
+  currUser = anvil.users.get_user()
+  data_for_month = [
+        row for row in app_tables.spending.search()
+        if (row['Date'].day >= 1 and row['Date'].day <=7 and row['Date'].month == month and row['Date'].year == year 
+            and row['owner'] == currUser and )
+      self.drop_down_1.items = [(row["Name"], row) for row in (app_tables.categories.search(Owner=None))] + [(row["Name"], row) for row in (app_tables.categories.search(Owner=currUser))]#added by All, updated dropdown values
+    
+    ]
+  #print(month)
+  return data_for_month
 
 
 @anvil.server.callable

@@ -81,7 +81,7 @@ class AddExpense(AddExpenseTemplate):
     if category:
       currUser = anvil.users.get_user()
       app_tables.categories.add_row(Name= category, Owner=currUser) #added by Dumbo, matches the custom category to the current user
-      self.drop_down_1.items = [(row["Name"], row) for row in (app_tables.categories.search(Owner=None))] + [(row["Name"], row) for row in (app_tables.categories.search(Owner=currUser))]#added by DUmbo, updated dropdown values
+      self.drop_down_1.items = [(row["Name"], row) for row in (app_tables.categories.search(Owner=None))] + [(row["Name"], row) for row in (app_tables.categories.search(Owner=currUser))]#added by All, updated dropdown values
 
 
 

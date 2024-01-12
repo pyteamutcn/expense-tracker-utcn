@@ -119,3 +119,7 @@ class Sales(SalesTemplate):
         # Calculate the average spendings
         average_spendings = total_spendings / 3 if total_spendings > 0 else 0
         return average_spendings
+
+    def plot_1_click(self, points, **event_args):
+      """This method is called when a data point is clicked."""
+      pass
