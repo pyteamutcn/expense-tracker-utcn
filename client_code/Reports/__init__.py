@@ -102,9 +102,13 @@ class Reports(ReportsTemplate):
     ## past_month = (current_month - i) % 12 or 12
     for i in range(0, 5):
       rez[0].append(rezMonth[i])
+    
 
     for i in range(0, 5):
       rez[1].append(self.costCategoriePerLuna(rezMonth[i], rezYear[i], "Clothes"))
+
+    rez[0].reverse()
+    rez[1].reverse()
 
     rez[2].append("Clothes")
 
@@ -147,7 +151,9 @@ class Reports(ReportsTemplate):
   
       for i in range(0, 5):
         rez[1].append(self.costCategoriePerLuna(rezMonth[i], rezYear[i], "Food"))
-  
+
+      rez[0].reverse()
+      rez[1].reverse()
       rez[2].append("Food")
   
       return rez
@@ -189,7 +195,9 @@ class Reports(ReportsTemplate):
   
       for i in range(0, 5):
         rez[1].append(self.costCategoriePerLuna(rezMonth[i], rezYear[i], "Entertainment"))
-  
+
+      rez[0].reverse()
+      rez[1].reverse()
       rez[2].append("Entertainment")
   
       return rez
@@ -231,7 +239,9 @@ class Reports(ReportsTemplate):
   
       for i in range(0, 5):
         rez[1].append(self.costCategoriePerLuna(rezMonth[i], rezYear[i], "Bills"))
-  
+
+      rez[0].reverse()
+      rez[1].reverse()
       rez[2].append("Bills")
   
       return rez
