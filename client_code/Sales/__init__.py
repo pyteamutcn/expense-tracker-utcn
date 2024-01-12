@@ -21,14 +21,16 @@ class Sales(SalesTemplate):
         self.x_weeks = ["Week1", "Week2", "Week3", "Week4"]
       
         # Get the y-values from the server
-        self.y_values = anvil.server.call('return_data', self.drop_down_1.selected_value)
+        current_year = datetime.now().year
+        self.y_values = anvil.server.call('return_data', self.drop_down_1.selected_value, current_year)
         #self.display_table(app_tables.spending)
         self.create_line_graph()
 
         # Set the contents of the data grid to the contents of the Files table.
         # This is done on the secure server where you might only want to return user-visible data
+        current_month = datetime.now().month
         self.user_sales = anvil.server.call('get_sales')
-        self.repeating_panel_1.items = self.user_sales.search()
+        self.repeating_panel_1.items = [row for row in self.user_sales.search() if (row['Date'].month == current_month)] #arata doar cheltuielile din luna curenta
 
     def update_current_month_spendings(self):
         # Dynamically get the current month and year
@@ -75,7 +77,8 @@ class Sales(SalesTemplate):
     # Update the values in the line graph based on the selected value of the drop-down menu
     def drop_down_1_change(self, **event_args):
         """This method is called when an item is selected"""
-        self.y_values = anvil.server.call('return_data', self.drop_down_1.selected_value) #aici trebe sa fac filtrare dupa user, doar la afisare
+        current_year = datetime.now().year
+        self.y_values = anvil.server.call('return_data', self.drop_down_1.selected_value, current_year) #aici trebe sa fac filtrare dupa user, doar la afisare
         self.create_line_graph()
 
     def label_7_show(self, **event_args):

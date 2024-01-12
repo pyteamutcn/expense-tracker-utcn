@@ -147,7 +147,7 @@ def return_week4_spend(month,year): #adauga categorie daca ne hotaram sa facem s
   return week4
 
 @anvil.server.callable
-def return_data(month):
+def return_data(month, year):
   #Your code to process and return data goes here
   string_to_int = {
     "January": 1,
@@ -164,10 +164,10 @@ def return_data(month):
     "December": 12,
   }
   
-  week1 = anvil.server.call('return_week1_spend', string_to_int[month], 2024)
-  week2 = anvil.server.call('return_week2_spend', string_to_int[month], 2024)
-  week3 = anvil.server.call('return_week3_spend', string_to_int[month], 2024)
-  week4 = anvil.server.call('return_week4_spend', string_to_int[month], 2024)
+  week1 = anvil.server.call('return_week1_spend', string_to_int[month], year)
+  week2 = anvil.server.call('return_week2_spend', string_to_int[month], year)
+  week3 = anvil.server.call('return_week3_spend', string_to_int[month], year)
+  week4 = anvil.server.call('return_week4_spend', string_to_int[month], year)
   return [
     [week1[0], week2[0], week3[0], week4[0]], #week1 week2 week3 week4
     [week1[1], week2[1], week3[1], week4[1]],

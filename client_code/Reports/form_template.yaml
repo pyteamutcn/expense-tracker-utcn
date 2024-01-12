@@ -75,9 +75,9 @@ components:
   components:
   - type: Label
     properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Sign-ups, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
+      visible: true, text: Compare last month spendings!, font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
     name: label_1
     layout_properties: {grid_position: 'TYZKNT,WZQHNH'}
   - type: Plot
@@ -91,9 +91,9 @@ components:
   components:
   - type: Label
     properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Results, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
+      visible: true, text: Monthly Comparison by Category, font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
     name: label_11
     layout_properties: {grid_position: 'YCGUEF,NJDVES'}
   - type: Plot
@@ -107,7 +107,7 @@ components:
   components:
   - type: Label
     properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Devices, font_size: null, font: '', spacing_above: small,
+      visible: true, text: Most Expensive Category, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     name: label_12

@@ -30,6 +30,11 @@ class Reports(ReportsTemplate):
         x=[2019, 2020, 2021, 2022, 2023],
         y=[662, 728, 794, 814, 906],
         name="Entertainment"
+    ),
+      go.Bar(
+        x=[2019, 2020, 2021, 2022, 2023],
+        y=[662, 728, 794, 814, 906],
+        name="Bills"
     )
     ]
 
