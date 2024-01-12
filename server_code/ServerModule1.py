@@ -173,7 +173,62 @@ def return_data(month, year):
     [week1[1], week2[1], week3[1], week4[1]],
     [week1[2], week2[2], week3[2], week4[2]]
     ]
+
+def costCategoriePerLuna(self, month, year, category):
+    currUser = anvil.users.get_user()
+    #print(category)
+    data_category_month = [
+      row for row in app_tables.spending.search()
+        if (row['Date'].month == month and row['Date'].year == year
+            and row['owner'] == currUser and row['category_dd']['Name'] == category)    
+    ]
+
+    price = 0
+    for row in data_category_month:
+      price += row['Price']
+    return price
+
+def clothesHandler(self, currMonth, currYear):
+    #rez = [[], [], []]
+    
+    string_to_int = {
+    "January": 1,
+    "February": 2,
+    "March": 3,
+    "April": 4,
+    "May": 5,
+    "June": 6,
+    "July": 7,
+    "August": 8,
+    "September": 9,
+    "October": 10,
+    "November": 11,
+    "December": 12,
+  }
+    
+    rezMonth = []
+    rezYear = []
+    
+    for i in range(0, 5):  # Exclude the current month
+            # Calculate the month and year for each of the 3 months before the current month
+            past_month = (currMonth - i) % 12 or 12
+            rezMonth.append(past_month)
+            if currMonth > 5 :
+              past_year = currYear
+            else:
+              past_year = currYear - 1 if past_month in (8, 9, 10, 11, 12) else currYear
+            rezYear.append(past_year)
+
+    ## past_month = (current_month - i) % 12 or 12
   
+      monthly_cat_cost = (self.costCategoriePerLuna(rezMonth[i], rezYear[i], category))
+
+    rez[0].reverse()
+    rez[1].reverse()
+
+    rez[2].append("Clothes")
+
+    return rez
 
 @anvil.server.callable
 def return_bar_charts():
