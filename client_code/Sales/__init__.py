@@ -21,7 +21,7 @@ class Sales(SalesTemplate):
         self.x_weeks = ["Week1", "Week2", "Week3", "Week4"]
         
         # Get the y-values from the server
-        self.y_values = anvil.server.call('return_data', "November")
+        self.y_values = anvil.server.call('return_data', "October")
         #self.display_table(app_tables.spending)
         self.create_line_graph()
 
@@ -34,8 +34,6 @@ class Sales(SalesTemplate):
         # Dynamically get the current month and year
         current_month = datetime.now().month
         current_year = datetime.now().year
-        
-
         # Fetch current month's spendings
         current_month_spendings = anvil.server.call('return_month_spend', current_month, current_year)
 

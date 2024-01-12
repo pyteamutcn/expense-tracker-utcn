@@ -40,21 +40,23 @@ def return_week1_spend(month,year): #adauga categorie daca ne hotaram sa facem s
   currUser = anvil.users.get_user()
   data_for_month = [
         row for row in app_tables.spending.search()
-        if (row['Date'].day >= 1 and row['Date'].day <=7 and row['Date'].month == month and row['Date'].year == year 
-            and row['owner'] == currUser and )
-      self.drop_down_1.items = [(row["Name"], row) for row in (app_tables.categories.search(Owner=None))] + [(row["Name"], row) for row in (app_tables.categories.search(Owner=currUser))]#added by All, updated dropdown values
+        #if (row['Date'].day >= 1 and row['Date'].day <=7 and row['Date'].month == month and row['Date'].year == year 
+           # and row['owner'] == currUser)
+        if(row['Date'] != 0)
     
     ]
-  #print(month)
+  print(data_for_month)
   return data_for_month
 
 
 @anvil.server.callable
 def return_data(month):
   #Your code to process and return data goes here
-  if month == "November":
+  week1 = anvil.server.call('return_week1_spend', "January", "2024")
+  print(week1)
+  if month == "January":
     return [
-      [342, 673, 684, 933], #week1 week2 week3 week4
+      [51, 673, 684, 933], #week1 week2 week3 week4
       [331, 887, 520, 21],
       [331, 887, 520, 300]
     ]
