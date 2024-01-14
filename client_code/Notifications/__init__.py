@@ -10,5 +10,6 @@ class Notifications(NotificationsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    anvil.server.call('sendMail')
 
     # Any code you write here will run before the form opens.

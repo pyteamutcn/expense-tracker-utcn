@@ -1,3 +1,4 @@
+import anvil.email
 import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -228,3 +229,10 @@ def return_bar_charts(month, year):
     barmode="stack",
   )
   return fig
+
+@anvil.server.callable
+def sendMail():
+  anvil.email.send(from_name = "My App Support", 
+                 to = "prowhite91@gmail.com",
+                 subject = "Welcome",
+                 text = "Welcome to My App!")
