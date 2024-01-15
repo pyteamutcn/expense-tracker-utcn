@@ -53,7 +53,7 @@ components:
     - {property: text, code: 'self.item[''categoryAddExpense'']', writeback: false}
     event_bindings: {change: text_categoryAddExpense_change, pressed_enter: text_categoryAddExpense_pressed_enter}
   - name: addCategory
-    properties: {text: Add category (textfield)}
+    properties: {text: Add custom category}
     type: Button
     layout_properties: {grid_position: 'QYASRV,NGIUJE GKFBSS,MWCFCK'}
     event_bindings: {click: addCategory_click}

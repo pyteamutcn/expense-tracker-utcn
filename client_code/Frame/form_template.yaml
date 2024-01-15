@@ -30,7 +30,7 @@ components:
     layout_properties: {grid_position: 'WTVZBA,QCUVNH'}
     event_bindings: {click: reports_page_link_click}
   - name: addExpense_page_link
-    properties: {text: ' ADD', icon: 'fa:money', font_size: 18}
+    properties: {text: ' ADD EXPENSE', icon: 'fa:money', font_size: 18}
     type: Button
     layout_properties: {grid_position: 'KVRHNA,BUWFIN'}
     event_bindings: {click: addExpense_page_link_click}
